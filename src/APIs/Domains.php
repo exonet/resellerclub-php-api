@@ -606,7 +606,8 @@ class Domains
         $adminContactId,
         $techContactId,
         $billingContactId,
-        $skipIRTP = false
+        $skipIRTP = false,
+	$designatedAgent = false
     ) {
         $params = [
             'order-id'           => $orderId,
@@ -618,6 +619,10 @@ class Domains
 
         if ($skipIRTP) {
             $params = array_merge($params, $this->processAttributes(['skipIRTP' => 'true']));
+        }
+
+        if ($designatedAgent) {
+            $params = array_merge($params, $this->processAttributes(['designated-agent' => 'true']));
         }
 
         return $this->post('modify-contact', $params);
