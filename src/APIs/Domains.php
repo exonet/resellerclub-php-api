@@ -383,19 +383,19 @@ class Domains
         $expireEnd = ''
     ) {
         $dates = [];
-        if ( ! empty($createdStart)) {
+        if (! empty($createdStart)) {
             $dates['creation-date-start'] = strtotime($createdStart);
         }
 
-        if ( ! empty($createdEnd)) {
+        if (! empty($createdEnd)) {
             $dates['creation-date-end'] = strtotime($createdEnd);
         }
 
-        if ( ! empty($expireStart)) {
+        if (! empty($expireStart)) {
             $dates['expiry-date-start'] = strtotime($expireStart);
         }
 
-        if ( ! empty($expireEnd)) {
+        if (! empty($expireEnd)) {
             $dates['expiry-date-end'] = strtotime($expireEnd);
         }
 
@@ -607,7 +607,7 @@ class Domains
         $techContactId,
         $billingContactId,
         $skipIRTP = false,
-	$designatedAgent = false
+        $designatedAgent = false
     ) {
         $params = [
             'order-id'           => $orderId,
@@ -615,14 +615,11 @@ class Domains
             'admin-contact-id'   => $adminContactId,
             'tech-contact-id'    => $techContactId,
             'billing-contact-id' => $billingContactId,
+            'designated-agent'   => $designatedAgent,
         ];
 
         if ($skipIRTP) {
             $params = array_merge($params, $this->processAttributes(['skipIRTP' => 'true']));
-        }
-
-        if ($designatedAgent) {
-            $params = array_merge($params, $this->processAttributes(['designated-agent' => 'true']));
         }
 
         return $this->post('modify-contact', $params);
@@ -990,11 +987,11 @@ class Domains
             $data['resellerId'] = $resellerId;
         }
 
-        if ( ! empty($slds)) {
+        if (! empty($slds)) {
             $data['domain'] = $slds;
         }
 
-        if ( ! empty($tlds)) {
+        if (! empty($tlds)) {
             $data['tld'] = $tlds;
         }
 
