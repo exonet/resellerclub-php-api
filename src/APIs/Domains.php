@@ -595,6 +595,8 @@ class Domains
      * @param int $adminContactId
      * @param int $techContactId
      * @param int $billingContactId
+     * @param bool $skipIRTP
+     * @param bool $designatedAgent
      *
      * @return array|Exception
      * @throws Exception
