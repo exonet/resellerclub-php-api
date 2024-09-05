@@ -615,7 +615,7 @@ class Domains
             'admin-contact-id'   => $adminContactId,
             'tech-contact-id'    => $techContactId,
             'billing-contact-id' => $billingContactId,
-            'designated-agent'   => $designatedAgent,
+            'designated-agent'   => $designatedAgent ? 'true' : 'false',
         ];
 
         if ($skipIRTP) {
