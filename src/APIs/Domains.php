@@ -397,19 +397,19 @@ class Domains
         $expireEnd = ''
     ) {
         $dates = [];
-        if (! empty($createdStart)) {
+        if ( ! empty($createdStart)) {
             $dates['creation-date-start'] = strtotime($createdStart);
         }
 
-        if (! empty($createdEnd)) {
+        if ( ! empty($createdEnd)) {
             $dates['creation-date-end'] = strtotime($createdEnd);
         }
 
-        if (! empty($expireStart)) {
+        if ( ! empty($expireStart)) {
             $dates['expiry-date-start'] = strtotime($expireStart);
         }
 
-        if (! empty($expireEnd)) {
+        if ( ! empty($expireEnd)) {
             $dates['expiry-date-end'] = strtotime($expireEnd);
         }
 
@@ -1003,11 +1003,11 @@ class Domains
             $data['resellerId'] = $resellerId;
         }
 
-        if (! empty($slds)) {
+        if ( ! empty($slds)) {
             $data['domain'] = $slds;
         }
 
-        if (! empty($tlds)) {
+        if ( ! empty($tlds)) {
             $data['tld'] = $tlds;
         }
 
