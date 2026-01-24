@@ -329,8 +329,17 @@ class Domains
      * @throws Exception
      * @link https://manage.logicboxes.com/kb/node/746
      */
-    public function renew($orderId, $years, $exp, $purchasePrivacy, $invoice, $purchasePremiumDns = null)
-    {
+    public function renew(
+        $orderId,
+        $years,
+        $exp,
+        $purchasePrivacy,
+        $invoice,
+        $purchasePremiumDns = null,
+        $attributes = []
+    ) {
+        $attributes = $this->processAttributes($attributes);
+
         $params = [
             'order-id'         => $orderId,
             'years'            => $years,
@@ -346,7 +355,7 @@ class Domains
             );
         }
 
-        return $this->post('renew', $params);
+        return $this->post('renew', $params + $attributes);
     }
 
     /**
