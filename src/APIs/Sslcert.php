@@ -1,15 +1,15 @@
 <?php
 //https://resellerclub.webpropanel.com/kb/ssl-certificate-apis
 
-namespace digicatech\ResellerClub\APIs;
+namespace Exonet\ResellerClub\APIs;
 
 use Exception;
-use digicatech\ResellerClub\Helper;
+use Exonet\ResellerClub\Helper;
 
 /**
  * Class Sslcert
  *
- * @package digicatech\ResellerClub\APIs
+ * @package Exonet\ResellerClub\APIs
  */
 class Sslcert
 {

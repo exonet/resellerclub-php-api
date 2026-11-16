@@ -1,9 +1,15 @@
 {
-    "name": "digicatech/resellerclub-php-api",
+    "name": "exonet/resellerclub-php-api",
     "description": "PHP SDK for ResellerClub API",
     "type": "library",
     "license": "MIT",
 	"authors": [
+		{
+		  "name": "Exonet",
+		  "email": "development@exonet.nl",
+		  "homepage": "https://exonet.nl",
+		  "role": "Developer"
+		},
 		{
 		  "name": "Digicatech OÜ",
 		  "email": "info@digicatech.com"
@@ -21,7 +27,7 @@
 	},
 	"autoload": {
 		"psr-4": {
-			"digicatech\\ResellerClub\\": "src/"
+			"Exonet\\ResellerClub\\": "src/"
 		}
     },
 	"config": {
