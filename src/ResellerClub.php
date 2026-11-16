@@ -1,22 +1,22 @@
 <?php
 
-namespace digicatech\ResellerClub;
+namespace Exonet\ResellerClub;
 
 use GuzzleHttp\Client as Guzzle;
-use digicatech\ResellerClub\APIs\Actions;
-use digicatech\ResellerClub\APIs\Billing;
-use digicatech\ResellerClub\APIs\Contacts;
-use digicatech\ResellerClub\APIs\Customers;
-use digicatech\ResellerClub\APIs\Domains;
-use digicatech\ResellerClub\APIs\Orders;
-use digicatech\ResellerClub\APIs\Products;
-use digicatech\ResellerClub\APIs\Dns;
-use digicatech\ResellerClub\APIs\Sslcert;
+use Exonet\ResellerClub\APIs\Actions;
+use Exonet\ResellerClub\APIs\Billing;
+use Exonet\ResellerClub\APIs\Contacts;
+use Exonet\ResellerClub\APIs\Customers;
+use Exonet\ResellerClub\APIs\Domains;
+use Exonet\ResellerClub\APIs\Orders;
+use Exonet\ResellerClub\APIs\Products;
+use Exonet\ResellerClub\APIs\Dns;
+use Exonet\ResellerClub\APIs\Sslcert;
 
 /**
  * Class ResellerClub
  *
- * @package digicatech\ResellerClub
+ * @package Exonet\ResellerClub
  */
 class ResellerClub
 {
@@ -89,7 +89,7 @@ class ResellerClub
     private function _getAPI($api)
     {
         if (empty($this->apiList[$api])) {
-            $class = 'digicatech\\ResellerClub\\APIs\\'.$api;
+            $class = 'Exonet\\ResellerClub\\APIs\\'.$api;
             $this->apiList[$api] = new $class(
                 $this->guzzle,
                 $this->authentication

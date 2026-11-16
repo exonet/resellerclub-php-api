@@ -1,15 +1,15 @@
 <?php
 
-namespace digicatech\ResellerClub\APIs;
+namespace Exonet\ResellerClub\APIs;
 
 use Exception;
-use digicatech\ResellerClub\Helper;
+use Exonet\ResellerClub\Helper;
 use SimpleXMLElement;
 
 /**
  * Class Domains
  *
- * @package digicatech\ResellerClub\APIs
+ * @package Exonet\ResellerClub\APIs
  * @todo    Check all the APIs parameters there are some changes.
  */
 class Domains

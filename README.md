@@ -1,4 +1,6 @@
 # Description
+Maintained by [Exonet](https://www.exonet.nl). This package started as a fork of `digicatech/resellerclub-php-api`, which is no longer available.
+
 This client is used to interact with one of the following APIs:
  * ResellerClub ([Docs](https://resellerclub.webpropanel.com/kb/answer/751))
  
@@ -15,46 +17,24 @@ Available API requests:
 
 
 ## Installation
-```console
-composer require digicatech/resellerclub-php-api
-```
-OR GITHUB REPOSITORY
-
 `composer.json`:
 ```
 "repositories": [
-      {
-          "type": "vcs",
-          "url":  "https://github.com/digicatech/resellerclub-php-api"
-      }
-  ],
-  "require": {
-    "digicatech/resellerclub-php-api": "dev-main"
-  }
-  ```
-
-
-OR LOCAL PATH
-
-`composer.json`:
-```
-"repositories": [
-        {
-            "type": "path",
-            "url":  "resellerclub-php-api"
-        }
+    {
+        "type": "vcs",
+        "url": "https://github.com/exonet/resellerclub-php-api"
+    }
 ],
 "require": {
-        "digicatech/resellerclub-php-api": "dev-main"
+    "exonet/resellerclub-php-api": "^2.0"
 }
 ```
-
 
 
 ## Usage Example
 `live mode`:
 ```php
-use digicatech\ResellerClub\ResellerClub;
+use Exonet\ResellerClub\ResellerClub;
 
 $resellerClub = new ResellerClub('<userId>', '<apiKey>');
 $resellerClub->domains()->available(['google', 'example'], ['com', 'net']);
@@ -63,7 +43,7 @@ $resellerClub->domains()->available(['google', 'example'], ['com', 'net']);
 
 `test mode`:
 ```php
-use digicatech\ResellerClub\ResellerClub;
+use Exonet\ResellerClub\ResellerClub;
 
 $resellerClub = new ResellerClub('<userId>', '<apiKey>',true);
 $resellerClub->domains()->available(['google', 'example'], ['com', 'net']);

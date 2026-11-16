@@ -1,14 +1,14 @@
 <?php
 
-namespace digicatech\ResellerClub\APIs;
+namespace Exonet\ResellerClub\APIs;
 
 use Exception;
-use digicatech\ResellerClub\Helper;
+use Exonet\ResellerClub\Helper;
 
 /**
  * Class Products
  *
- * @package digicatech\ResellerClub\APIs
+ * @package Exonet\ResellerClub\APIs
  */
 class Products
 {
