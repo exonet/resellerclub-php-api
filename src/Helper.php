@@ -63,12 +63,8 @@ trait Helper
                     )
                 )
             );
-        } catch (ClientException $e) {
-            return $this->parse($e->getResponse());
-        } catch (ServerException $e) {
-            return $this->parse($e->getResponse());
         } catch (BadResponseException $e) {
-            return $this->parse($e->getResponse());
+            return $this->parseErrorResponse($e);
         } catch (Exception $error) {
             return $error;
         }
@@ -132,12 +128,8 @@ trait Helper
                     ]
                 )
             );
-        } catch (ClientException $e) {
-            return $this->parse($e->getResponse());
-        } catch (ServerException $e) {
-            return $this->parse($e->getResponse());
         } catch (BadResponseException $e) {
-            return $this->parse($e->getResponse());
+            return $this->parseErrorResponse($e);
         } catch (Exception $error) {
             return $error;
         }
@@ -166,15 +158,31 @@ trait Helper
                     )
                 )
             );
-        } catch (ClientException $e) {
-            return $this->parse($e->getResponse());
-        } catch (ServerException $e) {
-            return $this->parse($e->getResponse());
         } catch (BadResponseException $e) {
-            return $this->parse($e->getResponse());
+            return $this->parseErrorResponse($e);
         } catch (Exception $error) {
             return $error;
         }
+    }
+
+    /**
+     * The API sends its errors as JSON, which is returned like any other answer. A body that is no JSON, such as the
+     * error page of a proxy, did not come from the API, so the exception is returned instead, with its status code.
+     *
+     * @param BadResponseException $exception
+     *
+     * @return BadResponseException|array|null
+     * @throws Exception
+     */
+    protected function parseErrorResponse(BadResponseException $exception)
+    {
+        json_decode((string)$exception->getResponse()->getBody());
+
+        if (json_last_error() !== JSON_ERROR_NONE) {
+            return $exception;
+        }
+
+        return $this->parse($exception->getResponse());
     }
 
     /**
